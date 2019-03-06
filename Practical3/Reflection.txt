@@ -1,0 +1,11 @@
+Practical 3 Reflection
+
+In this practical, I learned how to use GitKraken. 
+Everything went as expected because I understood last week's lectures about Version Control well. No major challenges were encountered. 
+GitKraken allows me to keep track of all the changes I have made and to merge changes made by other people. 
+I am also able to revert commit and to edit previous versions, so I don't feel worried about experimenting with new options. 
+My new repository: https://adelelvaleria.github.io
+
+Important concepts: merge conflict, GitHub repo, fork and clone repo, make GitHub website.
+
+
