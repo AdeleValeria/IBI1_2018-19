@@ -3,10 +3,10 @@ DNA = {'A':s.count("A"), 'G':s.count("G"), 'C':s.count("C"), 'T':s.count("T")}
 print (DNA)
 
 import matplotlib.pyplot as plt
-label = 'A', 'G', 'C', 'T'
-sizes = [s.count("A"), s.count("G"), s.count("C"), s.count("T")]
-explode = [0.05, 0.05, 0.05, 0.05]
-colors = ['cyan', 'beige', 'orange', 'indigo']
+label = 'A', 'G', 'C', 'T', 'U'
+sizes = [s.count("A"), s.count("G"), s.count("C"), s.count("T"), s.count("U")]
+explode = [0.05, 0.05, 0.05, 0.05, 0.05]
+colors = ['cyan', 'beige', 'orange', 'indigo', 'gray']
 plt.pie(sizes, labels=label, autopct='%1.1f%%', shadow=True, startangle=90, explode=explode, colors=colors)
 plt.axis('equal')
 plt.show()
