@@ -1,0 +1,3 @@
+Practical 4
+Important: While loop to solve the Collatz sequence and power of 2, if statement and variables.
+Everything went well. The power of 2 was the most difficult as it required some mathematics and a lot of repitition (for and while loop), but it was still manageable. 
