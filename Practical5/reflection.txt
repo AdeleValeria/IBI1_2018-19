@@ -1,0 +1,4 @@
+Practical 5
+Important: pie chart, bar graph, calculate the amount of each nucleobase in a given sequence of DNA, reverse and backward a string of words
+Today's practical was quite challenging. However, I was able to complete the tasks after doing some research on the internet. I think it is important to know where to find help and use the right key words for searching. 
+I also made an extra diagram (bar graph) to learn more about matplotlib. 
