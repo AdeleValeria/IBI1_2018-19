@@ -1,5 +1,6 @@
 m = input("Give me a string of words:")
 x = m.split()
-x.reverse()
+#To backward
 y = [z[::-1]for z in x]
+#To sort (descending)
 print(sorted(y, reverse=True))
