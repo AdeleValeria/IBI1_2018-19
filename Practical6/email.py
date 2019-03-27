@@ -7,50 +7,46 @@ Created on Wed Mar 27 09:00:58 2019
 
 import re
 #use open() function to open address_information.csv
-fhand = open('address_information.csv', 'r')
-inp = fhand.read()
-print(inp)
+address_book = open('address_information.csv', 'r')
+address_open = address_book.read()
 
-#get the comma-separated information using regex re.split()
-#comma = re.split(r",", inp)
-#print(comma)
-
-#find which address is legal and discard the wrong ones re.match()
-x = re.findall (r"[\w\-.]+@[\w\-.]+", inp)
-print(x)
+#find which address is legal (with .com)
+valid_address = re.findall (r"[\w\-.]+@[\w\-.]+.com", address_open)
+print(valid_address)
+#extract the receiver from the spreadsheet
+receiver = re.findall(r"(\S+):", address_open)
+#Delete David. I have been trying to figure out how to delete David automatically.
+#I tried to make a dictionary like this: {'Anna':'ibifiletest.163.com', 'David':'python@zju'}
+#I tried to delete David using this code: 
+#for k in dict.keys():
+#if k.endswith('.com') is False:
+#del dict(k)
+#However, the code would not work. Therefore, for now, I manually delete David.
+del receiver[1]
+print(receiver)
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-#sender_email = input("Type your email:")
-#password = input ("Type your password:")
-msg = MIMEMultipart()
-#msg['From'] = sender_email
-msg['Subject'] = "Who just sent me an email?"
-body = "Test test test"
-msg.attach(MIMEText(body, 'plain'))
+#Login to the ZJU email server
+sender_email = input("Your ZJU email:")
+password = input("Password:")
 server = smtplib.SMTP('smtp.zju.edu.cn', 25)
-#Next, log in to the server
+server.login(sender_email, password)
 
-#server.login(sender_email, password)
-
-
-name = re.findall(r"(\S+):", inp)
 i = 0
-x[i] = x[0]
-while i < len(name):
-    if x[i] != (r"[.com$]", inp):
-        print(i)
-        d = name[i]
-        address = x[i]
-        print(address)       
-        note = open('body.txt', 'r')
-        e = note.read()
-        l = re.sub(r"User",d, e)
-        print(l)
-        #server.sendmail(sender_email, address, msg.as_string())
-       
-    else:
-        del x[i], name[i]
-    i = i + 1  
+for i in range (len(receiver)):
+    count_receiver = receiver[i]
+    count_address = valid_address[i]
+    print("The following email has been sent to " +valid_address[i])
+    text = open('body.txt', 'r')
+    text_open = text.read()
+    #To address the email recipient by name
+    change_username = re.sub(r"User",count_receiver, text_open)
+    message = MIMEMultipart()
+    message['From'] = sender_email
+    message['Subject'] = "Dear " +count_receiver + ", Your Analysis Job Has Been Completed"
+    message.attach(MIMEText(change_username, 'plain'))
+    server.sendmail(sender_email, count_address, message.as_string()) 
+    i = i + 1
