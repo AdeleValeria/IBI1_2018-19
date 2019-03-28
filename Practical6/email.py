@@ -39,13 +39,13 @@ i = 0
 for i in range (len(receiver)):
     count_receiver = receiver[i]
     count_address = valid_address[i]
-    print("The following email has been sent to " +valid_address[i])
+    print("The email has been sent to " +valid_address[i])
     text = open('body.txt', 'r')
     text_open = text.read()
     #To address the email recipient by name
     change_username = re.sub(r"User",count_receiver, text_open)
     message = MIMEMultipart()
-    message['From'] = sender_email
+    message['From'] = "Adele"
     message['Subject'] = "Dear " +count_receiver + ", Your Analysis Job Has Been Completed"
     message.attach(MIMEText(change_username, 'plain'))
     server.sendmail(sender_email, count_address, message.as_string()) 
