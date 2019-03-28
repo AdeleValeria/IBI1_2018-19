@@ -53,7 +53,7 @@ for i in range (len(dict2)):
     change_username = re.sub(r"User",count_receiver, text_open)
     message = MIMEMultipart()
     message['From'] = sender_name
-    message['Subject'] = "Dear " +count_receiver + ", Your Analysis Job Has Been Completed"
+    message['Subject'] = "To " +count_receiver + ", Your Analysis Job Has Been Completed"
     message.attach(MIMEText(change_username, 'plain'))
     server.sendmail(sender_email, count_address, message.as_string()) 
     i = i + 1
