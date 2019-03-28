@@ -1,0 +1,10 @@
+Practical 6
+
+After weeks of learning Python, I think I have made good progress. 
+In practical 6, I spent way more time debugging than writing the code itself. 
+I had to plan and test the code over and over again to find my mistakes. 
+However, the coding experience wouldn't be complete without it!
+Notes to myself: Pay more attention to the little things. For example, I accidentaly deleted all the text from the body.txt, so nothing appeared on the screen. I thought the problem was with Python, in fact, it was human error. 
+
+Technical difficulty:
+It took me a while to figure out how to delete David automatically. At first, I extracted all email recipients from the excel file, then I deleted David manually. The solution that I could think of was to create a dictionary to pair the email addresses with their corresponding usernames. Then, I used an if statement to delete any item in the dictionary with incorrect email address. After that, I converted the dictionary to a list so I could look up an item using an integer index. 
