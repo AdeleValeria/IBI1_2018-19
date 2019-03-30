@@ -3,10 +3,9 @@
 #Input a sequence of DNA
 #Use .upper to capitalize the letters
 valid_dna = "ACGT"
-s = input("Give me a sequence of DNA:")
+s = input("Give me a sequence of DNA:").upper()
 check = all(i in valid_dna for i in s)
 if check is True:
-#s = input("Give me a sequence of DNA: ").upper()
 
 #To count the total of each nucleobase appearing in the sequence
     DNA = {'A':s.count("A"), 'G':s.count("G"), 'C':s.count("C"), 'T':s.count("T")}
