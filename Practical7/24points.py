@@ -16,4 +16,35 @@ for i in range(0,len(x)):
     else:
         print("The input number must be integers from 1 to 23")
         break
+
+def multiply(x):
+    mpy = x[i]*x[i]
+    print(x[i])
+    print(mpy)
+    return mpy
+
+def addition(x):
+    add = x[i]+x[i]
+    print(x[i])
+    print(add)
+    return add
+
+def subtraction(x):
+    sub = x[i]-x[i]
+    print(x[i])
+    print(sub)
+    return sub
+
+def division(x):
+    div = x[i]/x[i]
+    print(x[i])
+    print(int(div))
+    return div
     
+    
+
+    
+multiply(x)
+addition(x)
+subtraction(x)
+division(x)
