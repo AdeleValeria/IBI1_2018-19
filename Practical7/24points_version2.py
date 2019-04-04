@@ -16,7 +16,8 @@ check = all(i in valid_number for i in input_numbers)
 count = 0
 solution = 0
 
-if check is True:       
+if check is True: 
+      
     def dfs(n):
         global count
         global solution
@@ -65,4 +66,6 @@ if check is True:
     else:
         print("No")
     print('Recursion times:', count,', Solution:', solution)
-    
+
+elif check is False:
+    print("The numbers must be between 1 and 23")    
