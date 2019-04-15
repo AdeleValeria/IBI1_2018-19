@@ -6,7 +6,7 @@ Created on Wed Mar 13 09:20:14 2019
 """
 #Exercise some simple math
 a = 123
-b = 123456
+b = 123123
 #To check if b can be divided by 7 or not
 if b%7 == 0:
     print ("b can be divided by 7")
