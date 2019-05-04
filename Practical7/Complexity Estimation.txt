@@ -1,0 +1,26 @@
+24 POINTS GAME
+
+1. Ask the user to input any number between 1 and 23. Unlike the traditional 24 points game which normally requires 4 numbers, the user's input can be of any length.
+2. Compute the numbers using all possible arithmetic expressions (+,*,- and /) to get 24.
+3. Use a counter (var solution) to keep track of all possible math operations to reach 24.
+4. Use a counter (global var count) to count calls in function.
+
+The output:
+*All possible math operations that give 24
+*Error message is there is no solution found
+*Recursion times
+
+--------------Complexity Estimation-----------------
+Input 1,2,3,4,5,6
+There are 101566 ways to get 24
+Recursion times: 80293544
+
+Input 1,2,3,4,5
+There are 1920 ways to get 24
+Recursion times: 1247683
+
+Input 1,2,3,4 (the result appeared almost instantly)
+There are 212 ways to get 24
+Recursion times: 22779
+
+I assume the complexity for my code is O(2^N) because it starts off shallow, then rises meteorically with each addition to the input. 
