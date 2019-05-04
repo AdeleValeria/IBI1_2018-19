@@ -5,17 +5,16 @@ Created on Thu Apr  4 10:42:24 2019
 @author: Adele
 """
 
-from fractions import Fraction
 import operator
 from itertools import permutations
 
 input_numbers = input("Type some numbers between 1 and 23: ").split(",")
-#Convert the integer
+#The map() function executes a specified function for each item in a iterable.
+#In this case, the numbers in the list are converted to integer
 input_numbers = list(map(int, input_numbers))
-if len(input_numbers) == 1:
-    print("Please input more than 1 number")
 target = 24
-#Check is the numbers provided by the user match the requirement or not
+#Can only contain numbers between 1 and 23
+#The length of the input does not matter
 valid_number = (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,21,23)
 check = all(i in valid_number for i in input_numbers)
      
@@ -24,7 +23,11 @@ math_operation = {"add": operator.add, "mul": operator.mul, "sub": operator.sub,
 
 symbols = {"add": "+", "mul": "*", "sub": "-", "div": "/"}
 
+count = 0
 def grouping(nums):
+    #Count the recursion times
+    global count
+    count = count + 1
     if len(nums) == 1:
         yield nums[0]
     elif len(nums) == 2:
@@ -39,11 +42,15 @@ def grouping(nums):
 
 
 def get_groupings(nums2):
+    global count
+    count = count + 1
     for nums in nums2:
         yield from grouping(nums)
 
 
 def _generate_candidates(nums):
+    global count
+    count = count + 1
     x, y = nums[0], nums[1]
     if not isinstance(x, tuple) and not isinstance(y, tuple):
         for name in math_operation:
@@ -57,6 +64,8 @@ def _generate_candidates(nums):
 
 
 def generate_candidates(numbers):
+    global count
+    count = count + 1
     all_permutations = (
         x for r in range(2, len(numbers) + 1) for x in permutations(numbers, r)
     )
@@ -66,6 +75,8 @@ def generate_candidates(numbers):
 
 
 def compute(candidate):
+    global count
+    count = count + 1
     name, x, y = candidate
     child_x, child_y = x, y
     child_x = compute(x)[1] if isinstance(x, tuple) else x
@@ -74,6 +85,8 @@ def compute(candidate):
 
 
 def get_best_candidates(candidates, final_result):
+    global count
+    count = count + 1
     best_candidate, best_result, exact_found = None, 0, False
     for candidate in candidates:
         try:
@@ -90,6 +103,8 @@ def get_best_candidates(candidates, final_result):
 
 
 def parse(candidate, bracket=True):
+    global count
+    count = count + 1
     name, x, y = candidate
     symbol = symbols[name]
     child_x = parse(x) if isinstance(x, tuple) else str(x)
@@ -100,63 +115,25 @@ def parse(candidate, bracket=True):
     return result
 
 
-count = 0
 solution = 0
 
-if check is True: 
+if check is True and len(input_numbers) != 1: 
     for (x, y) in get_best_candidates(generate_candidates(input_numbers), target):
         expr = parse(y, False)
         print(f"{expr} = {x}")
-        
-    def dfs(n):
-        global count
-        global solution
-        count = count + 1
-        
-        if n == 1:
-            if(float(input_numbers[0])==24):
-                solution = solution + 1
-                return 1
-            else:
-                return 0
-        
-        for i in range (0, n):
-            for j in range(i+1, n):
-                a = input_numbers[i]
-                b = input_numbers[j]
-                input_numbers[j] = input_numbers[n-1]
-                
-                input_numbers[i] = a+b
-                if(dfs(n-1)):
-                    return 1
-                
-                input_numbers[i] = b-a
-                if(dfs(n-1)):
-                    return 1
-                
-                input_numbers[i] = a*b
-                if(dfs(n-1)):
-                    return 1
-                
-                if a:
-                    input_numbers[i] = Fraction(a,b)
-                    if(dfs(n-1)):
-                        return 1
-                if b:
-                    input_numbers[i] = Fraction(a,b)
-                    if (dfs(n-1)):
-                        return 1
-                    
-                input_numbers[i] = a
-                input_numbers[j] = b
-        return 0
-    
-    if (dfs(len(input_numbers))):
-        print("Yes")
+        #Count how many ways to reach the target number
+        solution = solution + 1 
+    #If there are not enough numbers to reach the target
+    if solution < 2:
+        solution = 0
+        print("No solution found\nThere are not enough numbers to get", target)
     else:
-        print("No")
-    print('Recursion times:', count,', Solution:', solution)
-
+        print("There are", solution, "ways to get", target)
+#In case the user only gives 1 number
+elif len(input_numbers) == 1:
+    print("No solution found. Please input more than 1 number.")
+#If the number given is above 23 or below 1
 elif check is False:
     print("The numbers must be between 1 and 23")  
 
+print('Recursion times:', count)
