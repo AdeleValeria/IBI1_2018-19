@@ -27,9 +27,13 @@ dict2 = copy.deepcopy(dict1)
 for k in dict1.keys():
     #If an item in the dictionary has a key (email address) which does not end with .com 
     if k.endswith('.com') is False:
+        print(k,': Wrong address!')
         #Delete the item (key:value pair) from the copied dictionary.
         del dict2[k]
-        print(dict2)
+    else:
+        print(k,': Correct address!')
+        
+
 #Convert the dictionary to list to look up an item by an integer index.
 name_list = list(dict2.values())
 address_list = list(dict2.keys())
