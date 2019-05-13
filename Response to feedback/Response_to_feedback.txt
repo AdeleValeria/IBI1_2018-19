@@ -1,0 +1,7 @@
+Feedback Week 4:
+
+- [ ] In file variables.py, b should be what you get by writing a twice in a row. I.e. if a =123, then b=123123
+
+
+What I did:
+I have changed b=123456 to b=123123
