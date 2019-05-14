@@ -19,10 +19,11 @@ Recover = 0
 
 
 #Keep track how the variables evolve over time
-#arr = {"Suspectible":[], "Infected":[], "Recovered":[]}
-Suspectible = list(range(10000))
 Beta = 0.3
 Gamma = 0.05
+S = []
+I = []
+R = []
 
 #Loop over 1000 time points
 for i in range (0,1000):
@@ -32,16 +33,30 @@ for i in range (0,1000):
     To get the value of making contact, multiply beta by the 
     proportion of infected people in the population"""
     Make_Contact = Beta * (Infected/N)
-    Random = np.random.choice(range(2), Susceptible, p=[1-Make_Contact,Make_Contact])
+    Random = np.random.choice(range(2), Susceptible, p=[1-Make_Contact, Make_Contact])
     Get_Infected = sum(Random)
     #pick infected individuals at random to become recovered
-    Random2 = np.random.choice(range(2), Infected, p=[0.95, 0.05])
+    Random2 = np.random.choice(range(2), Infected, p=[1-Gamma, Gamma])
     Get_Recovered = sum(Random2)
     Recover = Recover + Get_Recovered
-    #print(Recover)
     Infected= Infected + Get_Infected - Get_Recovered
-    #print(Infected)
     Susceptible=Susceptible - Get_Infected
-    #print(Susceptible)
-    
+    S.append(Susceptible)
+    I.append(Infected)
+    R.append(Recover)
 
+ 
+#SIR figure
+plt.figure(figsize=(6,4),dpi=150)
+plt.plot(S, label = "Susceptible") 
+plt.plot(I, label = "Infected")
+plt.plot(R, label = "Recover")
+plt.xlabel('Time')
+plt.ylabel('Number of People')
+plt.title('SIR Model')
+plt.legend("The relat)
+#gcf : get current figure
+plt.gcf()
+plt.show
+#blank figure will be saved if gcf is not used
+plt.gcf().savefig('SIR.png')
