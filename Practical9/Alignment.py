@@ -46,16 +46,46 @@ X  0 -1 -1 -1 -2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -2  0  0 -2 -1 -1 -1 -1 -1 -4
             blosum62[key] = value
     return blosum62
 
-s1 = input("File name (1st sequence):")
-s1_read = open(s1).read()
-s2 = input("File name (2nd sequence):")
-s2_read = open(s2).read()
+task = input("Select task:\n 1. Human-mouse\n 2. Human-random\n 3. Mouse-random\n")
+if task == '1':
+#HUMAN - MOUSE
+    s1 = input("File path of human sequence (please include .txt):\n")
+    with open(s1) as s1_open:
+        s1_read = s1_open.read()
+    s2 = input("File path of mouse sequence (please include .txt):\n")
+    with open(s2) as s2_open:
+        s2_read = s2_open.read()
+    
+elif task == '2':
+#HUMAN - RANDOM
+    s1 = input("File path of human sequence (include .txt):\n")
+    with open(s1) as s1_open:
+        s1_read = s1_open.read()
+    s2 = input("File path of random sequence (include .txt):\n")
+    with open(s1) as s2_open:
+        s2_read = s2_open.read()
 
-#Compare each amino acid
+elif task == '3':
+#MOUSE - RANDOM
+     s1 = input("File path of mouse sequence (include .txt):\n")
+     with open(s1) as s1_open:
+        s1_read = s1_open.read()
+     s2 = input("File path of random sequence (include .txt):\n")
+     with open(s2) as s2_open:
+        s2_read = s2_open.read()
+
+   
 score = 0
-if len(s1_read) == len(s2_read):
-    for i in range (len(s1_read)):
-        x = s1_read[i] + s2_read[i]
-        compare = get_blosum62_dictionary()
-        score = score + compare[x]
-    print('BLOSUM62:' , score)
+match = 0
+for i in range (len(s1_read)):
+    x = s1_read[i] + s2_read[i]
+    compare = get_blosum62_dictionary()
+    score = score + compare[x]
+    
+    if s1_read[i] == s2_read[i]:
+        match += 1
+perc = (match*100)/len(s1_read)
+print('\nBLOSUM62 score:', score)
+print('Percentage identity :', '%.2f' % perc, '%')
+
+
