@@ -9,6 +9,7 @@ import os
 import xml.dom.minidom
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 #Convert the xml file to cps
 #def xml_to_cps():
@@ -70,9 +71,31 @@ for index, row in model.iterrows():
     header[2].append(row[2])
     #make a list for each row
     Arr.append([row[0],row[1], row[2]])
-print(Arr)
 Results = np.array(Arr)
 Results = Results.astype(np.float)
-print(Results)
 
 #Plotting
+plt.figure(figsize=(6,4),dpi=120)
+plt.plot(header[1], label = "Predator") 
+plt.plot(header[2], label = "Prey Population")
+plt.xlabel('Time')
+plt.ylabel('Population Size')
+plt.title('Time Course')
+plt.legend()
+#gcf : get current figure
+plt.gcf()
+plt.show
+#blank figure will be saved if gcf is not used
+plt.gcf().savefig('Time course of the predator and prey population.png')
+
+#Limit cycle plot
+plt.figure(figsize=(6,4),dpi=120)
+plt.plot(header[1], header[2]) 
+plt.xlabel('Predator Population')
+plt.ylabel('Prey Population')
+plt.title('Limit Cycle')
+plt.legend()
+#gcf : get current figure
+plt.gcf()
+plt.show
+plt.gcf().savefig('predator population against prey population.png')
