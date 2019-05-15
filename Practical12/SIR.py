@@ -12,13 +12,10 @@ import matplotlib.pyplot as plt
 #population 
 N = 10000
 
-#basic variables of the model
 Susceptible = 9999
 Infected = 1
 Recover = 0
 
-
-#Keep track how the variables evolve over time
 Beta = 0.3
 Gamma = 0.05
 S = []
@@ -33,6 +30,9 @@ for i in range (0,1000):
     To get the value of making contact, multiply beta by the 
     proportion of infected people in the population"""
     Make_Contact = Beta * (Infected/N)
+    """First the set from which to choose elements, second the
+    number of elements to be chosen and third a list of probabilities for choosing each member
+    of a set.""" 
     Random = np.random.choice(range(2), Susceptible, p=[1-Make_Contact, Make_Contact])
     Get_Infected = sum(Random)
     #pick infected individuals at random to become recovered
@@ -54,7 +54,7 @@ plt.plot(R, label = "Recover")
 plt.xlabel('Time')
 plt.ylabel('Number of People')
 plt.title('SIR Model')
-plt.legend("The relat)
+plt.legend()
 #gcf : get current figure
 plt.gcf()
 plt.show
