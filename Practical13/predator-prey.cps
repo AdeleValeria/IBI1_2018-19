@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!-- generated with COPASI 4.24 (Build 197) (http://www.copasi.org) at 2019-05-15 02:12:42 UTC --><?oxygen RNGSchema="http://www.copasi.org/static/schema/CopasiML.rng" type="xml"?><COPASI copasiSourcesModified="0" versionDevel="197" versionMajor="4" versionMinor="24" xmlns="http://www.copasi.org/static/schema">
+<?xml version="1.0" ?><!-- generated with COPASI 4.24 (Build 197) (http://www.copasi.org) at 2019-05-15 02:33:19 UTC --><?oxygen RNGSchema="http://www.copasi.org/static/schema/CopasiML.rng" type="xml"?><COPASI copasiSourcesModified="0" versionDevel="197" versionMajor="4" versionMinor="24" xmlns="http://www.copasi.org/static/schema">
   <ListOfFunctions>
     <Function key="Function_13" name="Mass action (irreversible)" reversible="false" type="MassAction">
       <MiriamAnnotation>
@@ -165,7 +165,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Product metabolite="Metabolite_1" stoichiometry="1"/>
         </ListOfProducts>
         <ListOfConstants>
-          <Constant key="Parameter_5001" name="k1" value="0.02"/>
+          <Constant key="Parameter_5003" name="k1" value="0.02"/>
         </ListOfConstants>
         <KineticLaw function="Function_13" scalingCompartment="CN=Root,Model=New Model_1,Vector=Compartments[compartment]" unitType="Default">
           <ListOfCallParameters>
@@ -195,7 +195,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Substrate metabolite="Metabolite_0" stoichiometry="1"/>
         </ListOfSubstrates>
         <ListOfConstants>
-          <Constant key="Parameter_5000" name="k1" value="0.4"/>
+          <Constant key="Parameter_5002" name="k1" value="0.4"/>
         </ListOfConstants>
         <KineticLaw function="Function_13" scalingCompartment="CN=Root,Model=New Model_1,Vector=Compartments[compartment]" unitType="Default">
           <ListOfCallParameters>
@@ -227,7 +227,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Product metabolite="Metabolite_1" stoichiometry="2"/>
         </ListOfProducts>
         <ListOfConstants>
-          <Constant key="Parameter_4999" name="k1" value="0.1"/>
+          <Constant key="Parameter_5001" name="k1" value="0.1"/>
         </ListOfConstants>
         <KineticLaw function="Function_13" scalingCompartment="CN=Root,Model=New Model_1,Vector=Compartments[compartment]" unitType="Default">
           <ListOfCallParameters>
@@ -260,7 +260,7 @@ Reaction scheme where the products are created from the reactants and the change
           <Product metabolite="Metabolite_0" stoichiometry="1"/>
         </ListOfProducts>
         <ListOfConstants>
-          <Constant key="Parameter_4998" name="k1" value="0.02"/>
+          <Constant key="Parameter_5000" name="k1" value="0.02"/>
         </ListOfConstants>
         <KineticLaw function="Function_13" scalingCompartment="CN=Root,Model=New Model_1,Vector=Compartments[compartment]" unitType="Default">
           <ListOfCallParameters>
