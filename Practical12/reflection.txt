@@ -1,0 +1,5 @@
+It took me a while just to understand the probability concept for task 1. Advanced mathematics has been my greatest challenge. However, through programming, I got to visualize the data and had the opportunity to 'experiment', such as putting different values or formulas to see what would happen. I think I am one step closer to being excellent at statistics.
+
+I enjoyed plotting! In Spatial SIR, I had to loop a loop which also loops another loop. Although it could get very complicated and I am still struggling doing the loops in my head (where's my paper and pen?!), I think I have made a significant improvement, compared to the first day I started using Python. 
+
+In this practicum, I leearned np.random.choice, cm.viridis, and np array.

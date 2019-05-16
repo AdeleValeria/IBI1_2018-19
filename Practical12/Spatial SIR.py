@@ -18,6 +18,9 @@ outbreak = np.random.choice(range(100),2)
 #Because the outbreak numbers are in array, we use index to call.
 #Change the value in row, column coordinate to 1 (infected)
 population[outbreak[0], outbreak[1]] = 1
+plt.figure(figsize=(6,4),dpi=130)
+plt.imshow(population, cmap='viridis',interpolation='nearest')
+
 #infection rate upon contact
 beta = 0.3
 #recovery probability
