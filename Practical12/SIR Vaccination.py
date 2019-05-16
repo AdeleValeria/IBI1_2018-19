@@ -10,6 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 
+#loop 
 for i in range (0, 11):
     N = 10000
     Beta = 0.3
