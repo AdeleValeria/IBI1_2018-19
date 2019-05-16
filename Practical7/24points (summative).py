@@ -2,7 +2,7 @@
 """
 Created on Thu Apr  4 10:21:03 2019
 
-@author: HP
+@author: Adele
 """
 from fractions import Fraction
 
@@ -69,4 +69,4 @@ if check is True:
 
 #if the input number is not between 1 and 23
 elif check is False:
-    print("The numbers must be between 1 and 23")    
+    print("The numbers must be between 1 and 23")   
